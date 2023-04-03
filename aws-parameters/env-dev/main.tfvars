@@ -22,6 +22,10 @@ parameters = [
 ]
 
 
+secrets = [
+   { name = "test_secret", value = "secret_value", type = "SecureString"}
+]
+
 
 
 
