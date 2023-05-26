@@ -84,3 +84,10 @@ elasticache = {
     node_type = "cache.t3.micro"
   }
 }
+
+rabbitmq = {
+  main = {
+    instance_type = "t3.micro"
+
+  }
+}
