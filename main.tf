@@ -43,10 +43,4 @@ module "rds" {
   engine_version = each.value["engine_version"]
 
 
-
-  variable "backup_retention_period" {}
-  variable "preferred_backup_window" {}
-  variable "engine" {}
-  variable "engine_version" {}
-
 }
