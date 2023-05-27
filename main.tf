@@ -85,10 +85,8 @@ module "alb" {
 
   for_each =  var.alb
   internal = each.value["internal"]
+  name = each.value["name"]
   load_balancer_type = each.value["load_balancer_type"]
-  enable_deletion_protection = each.value["enable_deletion_protection"]
   subnets = lookup(local.subnet_ids, each.value["subnet_name"], null)
-
-
 
 }
