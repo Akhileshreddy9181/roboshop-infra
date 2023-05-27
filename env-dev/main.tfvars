@@ -104,7 +104,6 @@ alb = {
     name = "private"
     internal = true
     load_balancer_type = "application"
-    enable_deletion_protection =
 
   }
 }
