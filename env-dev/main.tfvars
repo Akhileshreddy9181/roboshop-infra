@@ -91,3 +91,20 @@ rabbitmq = {
 
   }
 }
+
+alb = {
+  public = {
+    subnet_name = "web"
+    name = "public"
+    internal = false
+    load_balancer_type = "application"
+  }
+  private = {
+    subnet_name = "app"
+    name = "private"
+    internal = true
+    load_balancer_type = "application"
+    enable_deletion_protection =
+
+  }
+}
