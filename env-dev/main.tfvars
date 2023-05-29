@@ -1,4 +1,5 @@
 env = "dev"
+bastion_cidr = ["172.31.4.247/32"]
 
 vpc = {
   main = {
@@ -94,7 +95,7 @@ rabbitmq = {
 
 alb = {
   public = {
-    subnet_name = "web"
+    subnet_name = "public"
     name = "public"
     internal = false
     load_balancer_type = "application"
@@ -116,6 +117,8 @@ apps = {
     max_size           = 1
     min_size           = 1
     subnet_name       ="app"
+    port  = 8080
+    allow_app_to = "app"
   }
   cart = {
     component = "cart"
@@ -124,6 +127,8 @@ apps = {
     max_size           = 1
     min_size           = 1
     subnet_name       ="app"
+    port  = 8080
+    allow_app_to = "app"
   }
   user = {
     component = "user"
@@ -132,6 +137,8 @@ apps = {
     max_size           = 1
     min_size           = 1
     subnet_name       ="app"
+    port  = 8080
+    allow_app_to = "app"
   }
   shipping = {
     component = "shipping"
@@ -140,6 +147,8 @@ apps = {
     max_size           = 1
     min_size           = 1
     subnet_name       ="app"
+    port  = 8080
+    allow_app_to = "app"
   }
   payment = {
     component = "payment"
@@ -148,6 +157,8 @@ apps = {
     max_size           = 1
     min_size           = 1
     subnet_name       ="app"
+    port  = 8080
+    allow_app_to = "app"
   }
   frontend = {
     component = "frontend"
@@ -156,5 +167,7 @@ apps = {
     max_size           = 1
     min_size           = 1
     subnet_name       ="web"
+    port  = 8080
+    allow_app_to = "public"
   }
 }
