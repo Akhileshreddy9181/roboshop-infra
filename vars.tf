@@ -18,4 +18,4 @@ variable "rabbitmq" {}
 
 variable "alb" {}
 
-variable "app" {}
+variable "apps" {}
