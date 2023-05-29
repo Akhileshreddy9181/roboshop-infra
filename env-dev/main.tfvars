@@ -115,6 +115,6 @@ apps = {
     desired_capacity   = 1
     max_size           = 1
     min_size           = 1
-    subnets_name       ="app"
+    subnet_name       ="app"
   }
 }
