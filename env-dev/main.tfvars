@@ -72,7 +72,6 @@ rds = {
     backup_retention_period = 1
     preferred_backup_window = "07:00-09:00"
     no_of_instances = 1
-    skip_final_snapshot = true
     instance_class = "db.t3.small"
   }
 }
@@ -113,5 +112,9 @@ apps = {
   catalogue = {
     component = "catalogue"
     instance_type = "t3.nano"
+    desired_capacity   = 1
+    max_size           = 1
+    min_size           = 1
+    subnets_name       ="app"
   }
 }

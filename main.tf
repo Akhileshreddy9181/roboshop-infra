@@ -39,7 +39,6 @@ module "vpc" {
 #  for_each = var.rds
 #  engine = each.value["engine"]
 #  backup_retention_period = each.value["backup_retention_period"]
-#  skip_final_snapshot = each.value["skip_final_snapshot"]
 #  preferred_backup_window = each.value["preferred_backup_window"]
 #  engine_version = each.value["engine_version"]
 #  instance_class = each.value["instance_class"]
@@ -100,6 +99,10 @@ module "app" {
   for_each =  var.apps
   component = each.value["component"]
   instance_type = each.value["instance_type"]
+  desired_capacity   = each.value["desired_capacity"]
+  max_size           = each.value["max_size"]
+  min_size           = each.value["min_size"]
+  subnets            = each.value["subnets"]
 
 
 
