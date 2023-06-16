@@ -119,5 +119,5 @@ module "app" {
 }
 
 output "alb" {
-  value = module.alb.listener
+  value = module.alb
 }
