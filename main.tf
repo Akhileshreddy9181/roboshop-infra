@@ -18,15 +18,19 @@ module "docdb" {
   env = var.env
   tags = var.tags
 
+  subnet_ids = local.db_subnet_ids
+  vpc_id = module.vpc["main"].vpc_id
+
   for_each = var.docdb
   engine = each.value["engine"]
   backup_retention_period = each.value["backup_retention_period"]
   preferred_backup_window = each.value["preferred_backup_window"]
   skip_final_snapshot = each.value["skip_final_snapshot"]
   engine_version = each.value["engine_version"]
-  subnet_ids = local.db_subnet_ids
   no_of_instances = each.value["no_of_instances"]
   instance_class = each.value["instance_class"]
+  allow_subnets = lookup(local.subnet_cidr, each.value["allow_subnets"], null)
+
 
 }
 
