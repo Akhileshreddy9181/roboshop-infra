@@ -77,6 +77,7 @@ rds = {
     skip_final_snapshot = true
     no_of_instances = 1
     instance_class = "db.t3.small"
+    allow_subnets = "app"
   }
 }
 
@@ -166,7 +167,7 @@ apps = {
     allow_app_to = "app"
     alb = "private"
     listener_priority = 13
-    parameters = []
+    parameters = ["rds"]
   }
   payment = {
     component = "payment"

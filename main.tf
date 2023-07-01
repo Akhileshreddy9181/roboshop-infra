@@ -41,6 +41,8 @@ module "rds" {
   env = var.env
   tags = var.tags
   subnet_ids = local.db_subnet_ids
+  vpc_id = module.vpc["main"].vpc_id
+
 
   for_each = var.rds
   engine = each.value["engine"]
@@ -50,6 +52,8 @@ module "rds" {
   engine_version = each.value["engine_version"]
   instance_class = each.value["instance_class"]
   no_of_instances = each.value["no_of_instances"]
+  allow_subnets = lookup(local.subnet_cidr, each.value["allow_subnets"], null)
+
 
 
 }
