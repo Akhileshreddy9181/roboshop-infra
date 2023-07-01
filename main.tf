@@ -118,6 +118,7 @@ module "app" {
   subnets = lookup(local.subnet_ids, each.value["subnet_name"], null)
   port = each.value["port"]
   listener_priority = each.value["listener_priority"]
+  parameters = each.value["parameters"]
   allow_app_to  = lookup(local.subnet_cidr, each.value["allow_app_to"], null)
   alb_dns_name = lookup(lookup(lookup(module.alb, each.value["alb"], null), "alb", null), "dns_name", null)
   listener_arn = lookup(lookup(lookup(module.alb, each.value["alb"], null), "listener", null), "arn", null)
