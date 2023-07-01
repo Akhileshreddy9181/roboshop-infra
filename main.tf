@@ -34,6 +34,8 @@ module "docdb" {
 
 }
 
+
+
 module "rds" {
   source = "git::https://github.com/Akhileshreddy9181/tf-module-rds.git"
   env = var.env
@@ -123,5 +125,5 @@ module "app" {
 }
 
 output "alb" {
-  value = module.alb
+  value = module.elasticache
 }
