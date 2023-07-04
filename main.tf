@@ -166,6 +166,9 @@ resource "aws_ec2_tag" "name-tag" {
 }
 
 resource "null_resource" "load-gen" {
+  triggers = {
+    abc = aws_spot_instance_request.load-runner.public_ip
+  }
   provisioner "remote-exec" {
     connection {
       host = aws_spot_instance_request.load-runner.public_ip
