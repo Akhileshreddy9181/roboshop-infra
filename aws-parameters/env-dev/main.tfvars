@@ -33,6 +33,7 @@ secrets = [
    { name = "dev.rds.user", value = "admin1", type = "SecureString"},
    { name = "dev.rds.pass", value = "Roboshop1", type = "SecureString"},
 
+
 ]
 
 
