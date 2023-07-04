@@ -150,13 +150,18 @@ resource "aws_spot_instance_request" "load-runner" {
   ami = data.aws_ami.ami.id
   instance_type = "t3.medium"
   wait_for_fulfillment = true
-  vpc_security_group_ids = [var.default_vpc_id]
+  vpc_security_group_ids = [data.aws_security_group.default_secgrp_id.id]
+
 
 
   tags = merge(
     var.tags,
     { Name = "load-runner"}
   )
+}
+
+output "default_security_grp_id" {
+  value = data.aws_security_group.default_secgrp_id.id
 }
 
 resource "aws_ec2_tag" "name-tag" {

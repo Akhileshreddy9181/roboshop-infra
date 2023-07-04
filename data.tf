@@ -7,3 +7,7 @@ data "aws_ami" "ami" {
   name_regex = "devops-practice-with-ansible"
   owners = ["self"]
 }
+
+data "aws_security_group" "default_secgrp_id" {
+  id = var.default_vpc_id
+}
