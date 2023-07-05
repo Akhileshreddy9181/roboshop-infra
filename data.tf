@@ -8,6 +8,10 @@ data "aws_ami" "ami" {
   owners = ["self"]
 }
 
-data "aws_security_group" "default_secgrp_id" {
-  id = var.default_vpc_id
+data "aws_vpc" "default_vpc" {
+  default = true
+}
+
+data "aws_security_group" "def_secgrp_id" {
+   vpc_id = data.aws_vpc.default_vpc.id
 }
