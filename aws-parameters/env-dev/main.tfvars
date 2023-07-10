@@ -32,6 +32,8 @@ secrets = [
    { name = "dev.docdb.pass", value = "Roboshop1", type = "SecureString"},
    { name = "dev.rds.user", value = "admin1", type = "SecureString"},
    { name = "dev.rds.pass", value = "Roboshop1", type = "SecureString"},
+   { name = "prod.ssh.user", value = "centos", type = "SecureString"},
+   { name = "prod.ssh.pass", value = "DevOps321", type = "SecureString"},
 
 
 ]
