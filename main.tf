@@ -12,7 +12,7 @@ module "vpc" {
 
 
 }
-
+/*
 module "docdb" {
   source = "git::https://github.com/Akhileshreddy9181/tf-module-docdb.git"
   env = var.env
@@ -97,7 +97,7 @@ module "rabbitmq" {
 
 
 
-}
+}*/
 
 module "alb" {
   source = "git::https://github.com/Akhileshreddy9181/tf-module-alb.git"
@@ -141,7 +141,7 @@ module "app" {
 
 }
 
-output "alb" {
+/*output "alb" {
   value = module.elasticache
 }
 
@@ -183,4 +183,4 @@ resource "null_resource" "load-gen" {
 
     ]
   }
-}
+}*/
