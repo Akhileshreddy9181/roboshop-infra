@@ -12,7 +12,6 @@ module "vpc" {
 
 
 }
-/*
 module "docdb" {
   source = "git::https://github.com/Akhileshreddy9181/tf-module-docdb.git"
   env = var.env
@@ -97,7 +96,7 @@ module "rabbitmq" {
 
 
 
-}*/
+}
 
 module "alb" {
   source = "git::https://github.com/Akhileshreddy9181/tf-module-alb.git"
@@ -116,7 +115,7 @@ module "alb" {
 
 module "app" {
 
-  //depends_on = [module.docdb, module.rds, module.elasticache, module.alb, module.rabbitmq]
+  depends_on = [module.docdb, module.rds, module.elasticache, module.alb, module.rabbitmq]
   source = "git::https://github.com/Akhileshreddy9181/tf-module-app.git"
   env = var.env
   tags = var.tags
