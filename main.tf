@@ -140,7 +140,7 @@ module "app" {
 
 }
 
-/*output "alb" {
+output "alb" {
   value = module.elasticache
 }
 
@@ -182,4 +182,4 @@ resource "null_resource" "load-gen" {
 
     ]
   }
-}*/
+}
