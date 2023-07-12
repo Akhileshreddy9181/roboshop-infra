@@ -140,9 +140,9 @@ module "app" {
 
 }
 
-output "alb" {
+/*output "alb" {
   value = module.elasticache
-}
+}*/
 
 
 /*resource "aws_spot_instance_request" "load-runner" {
