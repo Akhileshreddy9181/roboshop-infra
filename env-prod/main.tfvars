@@ -2,6 +2,7 @@ env = "prod"
 bastion_cidr = ["172.31.4.247/32"]
 dns_domain = "devopsa.online"
 
+
 vpc = {
   main = {
     vpc_cidr = "10.255.0.0/16"
