@@ -12,6 +12,8 @@ module "vpc" {
 
 
 }
+/*
+
 module "docdb" {
   source = "git::https://github.com/Akhileshreddy9181/tf-module-docdb.git"
   env = var.env
@@ -140,6 +142,7 @@ module "app" {
   listener_arn = lookup(lookup(lookup(module.alb, each.value["alb"], null), "listener", null), "arn", null)
 
 }
+*/
 
 /*output "alb" {
   value = module.elasticache
@@ -184,3 +187,35 @@ resource "null_resource" "load-gen" {
     ]
   }
 }*/
+
+module "minikube" {
+  source              = "github.com/scholzj/terraform-aws-minikube"
+
+  aws_region          = "us-east-1"
+  cluster_name        = "minikube"
+  aws_instance_type   = "t3.medium"
+  ssh_public_key      = "~/.ssh/id_rsa.pub"
+  aws_subnet_id       = lookup(local.subnet_ids, "public", null)
+  //ami_image_id        = data.aws_ami.ami.id
+  hosted_zone         = "Z00402221E1TOA6JZJNT9"
+  hosted_zone_private = false
+
+  tags = {
+    Application = "Minikube"
+  }
+
+  addons = [
+    "https://raw.githubusercontent.com/scholzj/terraform-aws-minikube/master/addons/storage-class.yaml",
+    "https://raw.githubusercontent.com/scholzj/terraform-aws-minikube/master/addons/heapster.yaml",
+    "https://raw.githubusercontent.com/scholzj/terraform-aws-minikube/master/addons/dashboard.yaml",
+    "https://raw.githubusercontent.com/scholzj/terraform-aws-minikube/master/addons/external-dns.yaml"
+  ]
+}
+
+output "MINIKUBE_SERVER" {
+  value = "ssh centos@${module.minikube.public_ip}"
+}
+
+output "KUBE_CONFIG" {
+  value = "scp centos@${module.minikube.public_ip}:/home/centos/kubeconfig ~/.kube/config"
+}
