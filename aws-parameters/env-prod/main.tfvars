@@ -7,7 +7,7 @@ parameters = [
    { name = "prod.user.mongo", value = "true", type = "String"},
    { name = "prod.user.redis_host", value = "redis-prod.devopsa.online", type = "String"},
    { name = "prod.user.mongo_url", value = "mongodb://mongodb-prod.devopsa.online:27017/catalogue", type = "String"},
-   { name = "prod.shipping.cart_endpoint", value = "cart-prod.devopsa.online:80", type = "String"},
+   { name = "prod.shipping.cart_endpoint", value = "cart:8080", type = "String"},
    { name = "prod.shipping.db_host", value = "mysql-prod.devopsa.online", type = "String"},
    { name = "prod.payment.cart_host", value = "cart-prod.devopsa.online", type = "String"},
    { name = "prod.payment.cart_port", value = "80", type = "String"},
